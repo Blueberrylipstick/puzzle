@@ -14,6 +14,13 @@ def validate_board(board):
     '''
     #check rows
     for elem in board:
-        row = [block for block in elem if block.isnum()]
+        row = [block for block in elem if block.isnumeric()]
         if len(set(row)) != len(row):
             return False
+    
+    #check columns
+    for num in range(len(board)):
+        column = [row[num] for row in board if row[num].isnumeric()]
+        if len(set(column)) != len(column):
+            return False
+    
