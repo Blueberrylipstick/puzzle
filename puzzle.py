@@ -27,7 +27,7 @@ def validate_board(board):
     #check colored
     coord = [0, len(board) - 1]
     for num in range(5):
-        elem = [board[coord[0]][coord[1] - i] for i in range(5)] +\
-            [board[coord[0] + i][coord[1]] for i in range(5)]
+        elem = [board[coord[0]][coord[1] - i] for i in range(5) if board[coord[0]][coord[1] - i].isnumeric()] +\
+            [board[coord[0] + i][coord[1]] for i in range(5) if board[coord[0] + i][coord[1]].isnumeric()]
         if len(set(elem)) != len(elem):
             return False
