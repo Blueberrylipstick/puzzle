@@ -19,8 +19,7 @@ def validate_board(board):
     if not isinstance(board, list):
         return False
 
-
-    return True
+    return check_colored(board) and check_columns(board) and check_rows(board)
 
 
 def check_rows(board: list) -> bool:
