@@ -23,7 +23,7 @@ def validate_board(board):
     return True
 
 
-def cheeck_rows(board: list) -> bool:
+def check_rows(board: list) -> bool:
     for elem in board:
         row = [block for block in elem if block.isnumeric()]
         if len(set(row)) != len(row):
