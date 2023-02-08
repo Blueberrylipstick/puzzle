@@ -12,4 +12,8 @@ def validate_board(board):
  "  2  ****"
 ]
     '''
-
+    #check rows
+    for elem in board:
+        row = [block for block in elem if block.isnum()]
+        if len(set(row)) != len(row):
+            return False
