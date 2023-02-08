@@ -1,3 +1,7 @@
+'''
+Practice
+'''
+
 def validate_board(board):
     '''
     Checks if field is ready for play
@@ -15,19 +19,29 @@ def validate_board(board):
     if not isinstance(board, list):
         return False
 
-    #check rows
+
+    return True
+
+
+def cheeck_rows(board: list) -> bool:
     for elem in board:
         row = [block for block in elem if block.isnumeric()]
         if len(set(row)) != len(row):
             return False
-    
-    #check columns
+
+    return True
+
+
+def check_columns(board: list) -> bool:
     for num in range(len(board)):
         column = [row[num] for row in board if row[num].isnumeric()]
         if len(set(column)) != len(column):
             return False
-    
-    #check colored
+
+    return True
+
+
+def check_colored(board: list) -> bool:
     coord = [len(board) - 1, 0]
     for num in range(5):
         elem = [board[coord[0] - i][coord[1]] for i in range(5) if board[coord[0] - i][coord[1]].isnumeric()] +\
@@ -36,6 +50,7 @@ def validate_board(board):
             return False
 
     return True
+
 
 if __name__ == '__main__':
     import doctest
